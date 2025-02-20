@@ -1,0 +1,126 @@
+{
+  "start": {
+    "text": "You stand before Hollow Keep, its crumbling towers piercing the foggy sky. The gate creaks open, inviting you in.",
+    "image": [
+      "   /|    ",
+      "  / |    ",
+      " /  |    ",
+      "|___|    ",
+      "|   |    "
+    ],
+    "choices": [
+      {"text": "Enter the castle", "next": "hall"},
+      {"text": "Turn back and leave", "next": "end_flee"}
+    ]
+  },
+  "hall": {
+    "text": "The grand hall is dim, cobwebs draping the walls. A dusty shield rests by a suit of armor.",
+    "image": [
+      "  _____  ",
+      " |     | ",
+      " |_____| "
+    ],
+    "choices": [
+      {"text": "Take the shield", "next": "staircase", "item": "shield"},
+      {"text": "Leave it and proceed", "next": "staircase"}
+    ]
+  },
+  "staircase": {
+    "text": "A spiral staircase looms ahead. You hear faint whispers from above and a clatter from below.",
+    "image": [
+      "  /    ",
+      " /    ",
+      "/____ "
+    ],
+    "choices": [
+      {"text": "Climb to the tower", "next": "tower"},
+      {"text": "Descend to the dungeon", "next": "dungeon"}
+    ]
+  },
+  "tower": {
+    "text": "The tower room is cold, a spectral knight guarding a golden crown. It raises its sword!",
+    "image": [
+      "   __||__ ",
+      "  |  ()  |",
+      "  |______|"
+    ],
+    "choices": [
+      {"text": "Fight the knight (needs shield)", "next": "crown" if "shield" in {"inventory": []} else "death_knight"},
+      {"text": "Flee back to the staircase", "next": "staircase"}
+    ]
+  },
+  "crown": {
+    "text": "With your shield, you deflect the knight’s blows and banish it. The golden crown is yours!",
+    "image": [
+      "   /\\    ",
+      "  /  \\   ",
+      " /____\\  "
+    ],
+    "choices": [
+      {"text": "Take the crown and escape", "next": "end_victory", "item": "crown"}
+    ]
+  },
+  "death_knight": {
+    "text": "Unarmed, the spectral knight cuts you down. Your quest ends in the tower’s chill embrace.",
+    "image": [
+      "   X_X   ",
+      "  /| |   ",
+      "  / |    "
+    ],
+    "choices": []
+  },
+  "dungeon": {
+    "text": "The dungeon is damp, chains rattling. A locked chest glows faintly, and a skeleton holds a key.",
+    "image": [
+      "  _____  ",
+      " |  *  | ",
+      " |_____| "
+    ],
+    "choices": [
+      {"text": "Take the key from the skeleton", "next": "chest", "item": "key"},
+      {"text": "Return to the staircase", "next": "staircase"}
+    ]
+  },
+  "chest": {
+    "text": "Using the key, you unlock the chest. Inside is a ruby amulet, pulsing with magic!",
+    "image": [
+      "  /    \\ ",
+      " /______\\",
+      " |  **  |"
+    ],
+    "choices": [
+      {"text": "Take the amulet and leave", "next": "end_treasure", "item": "amulet"}
+    ]
+  },
+  "end_victory": {
+    "text": "You escape Hollow Keep with the crown, victorious over its curse. Fame awaits you!",
+    "image": [
+      "   ***   ",
+      "  /   \\  ",
+      " /     \\ "
+    ],
+    "choices": []
+  },
+  "end_treasure": {
+    "text": "You flee with the amulet, its power yours. The castle fades into the mist behind you.",
+    "image": [
+      "   * *   ",
+      "  /   \\  ",
+      " *     * "
+    ],
+    "choices": []
+  },
+  "end_flee": {
+    "text": "You turn away from Hollow Keep, safe but empty-handed. The mist swallows the castle as you leave.",
+    "choices": []
+  },
+  "death_curse": {
+    "text": "An unseen force grips you as you linger too long. The curse claims your soul!",
+    "image": [
+      "   ~ ~   ",
+      "  X_X    ",
+      "  / |    "
+    ],
+    "choices": []
+  }
+}

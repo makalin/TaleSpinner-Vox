@@ -1,0 +1,117 @@
+{
+  "start": {
+    "text": "You drift through space in your tiny shuttle, spotting a massive derelict ship. Its hull is cracked, but faint lights flicker within.",
+    "image": [
+      "       .      ",
+      "   __/_`.  .- ",
+      "  _,` | \\-'   ",
+      "    ') `      ",
+      "   .'||       ",
+      "  _.'||       "
+    ],
+    "choices": [
+      {"text": "Dock with the ship and explore", "next": "airlock"},
+      {"text": "Scan it from a distance and leave", "next": "end_safe"}
+    ]
+  },
+  "airlock": {
+    "text": "You dock and enter through a creaky airlock. A datapad lies on the floor, glowing faintly.",
+    "image": [
+      "  ____    ",
+      " |    |   ",
+      " |____|   "
+    ],
+    "choices": [
+      {"text": "Pick up the datapad", "next": "corridor", "item": "datapad"},
+      {"text": "Ignore it and move on", "next": "corridor"}
+    ]
+  },
+  "corridor": {
+    "text": "The corridor stretches ahead, dimly lit. You hear a distant hum. Two paths diverge: one to the engine room, another to the bridge.",
+    "image": [
+      "  ---+--- ",
+      " /       \\",
+      "          "
+    ],
+    "choices": [
+      {"text": "Head to the engine room", "next": "engine_room"},
+      {"text": "Go to the bridge", "next": "bridge"}
+    ]
+  },
+  "engine_room": {
+    "text": "The engine room hums with power. A strange device pulses with energy, and a locked crate sits nearby.",
+    "image": [
+      "   __||__ ",
+      "  |  **  |",
+      "  |______|"
+    ],
+    "choices": [
+      {"text": "Examine the device", "next": "device"},
+      {"text": "Try to open the crate (needs datapad)", "next": "treasure" if "datapad" in {"inventory": []} else "locked_crate"}
+    ]
+  },
+  "device": {
+    "text": "The device activates with a deafening roar, overloading the ship’s core. Alarms blare as the ship begins to collapse!",
+    "image": [
+      "   !!!!   ",
+      "  *BOOM*  ",
+      "   !!!!   "
+    ],
+    "choices": [
+      {"text": "Run back to your shuttle", "next": "escape_fail"}
+    ]
+  },
+  "locked_crate": {
+    "text": "The crate is locked with a digital seal. Without a key, it won’t budge.",
+    "choices": [
+      {"text": "Return to the corridor", "next": "corridor"}
+    ]
+  },
+  "treasure": {
+    "text": "Using the datapad, you unlock the crate. Inside is a glowing crystal—rare and valuable!",
+    "image": [
+      "   /\\    ",
+      "  /  \\   ",
+      " /    \\  ",
+      " \\    /  ",
+      "  \\  /   ",
+      "   \\/    "
+    ],
+    "choices": [
+      {"text": "Take the crystal and leave", "next": "escape_success", "item": "crystal"}
+    ]
+  },
+  "bridge": {
+    "text": "The bridge is silent, screens shattered. A log mentions a 'core overload device' in the engine room.",
+    "image": [
+      "  _______ ",
+      " |  ***  |",
+      " |_______|"
+    ],
+    "choices": [
+      {"text": "Return to the corridor", "next": "corridor"}
+    ]
+  },
+  "escape_success": {
+    "text": "You race back to your shuttle with the crystal and launch into space as the ship disintegrates behind you. Victory!",
+    "image": [
+      "      *   ",
+      "   -> *   ",
+      "      *   "
+    ],
+    "choices": []
+  },
+  "escape_fail": {
+    "text": "You sprint to your shuttle, but the ship explodes before you can escape. The void claims you.",
+    "image": [
+      "   X_X    ",
+      "  /   \\   ",
+      " /____ \\  "
+    ],
+    "choices": []
+  },
+  "end_safe": {
+    "text": "You scan the ship, detect instability, and decide to leave. Safe, but empty-handed.",
+    "choices": []
+  }
+}
