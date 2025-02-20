@@ -12,7 +12,7 @@ A console-based text adventure maker and player, built in Python. Create and pla
 ## Installation
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/talespinner-vox.git
+   git clone https://github.com/makalin/talespinner-vox.git
    cd talespinner-vox
    ```
 2. **Install Python**: Ensure Python 3.6+ is installed ([Download](https://www.python.org/downloads/)).
